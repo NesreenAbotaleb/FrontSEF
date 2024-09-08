@@ -1,0 +1,823 @@
+/* General */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+        background-color: #eef0eb;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.overlay{
+    position: absolute;
+    width: 100% ;
+    height: 100%;
+    background-color: #1a0e029a ;
+    z-index: 9;
+}
+
+.line{
+    background-color: #606c38;
+    border: none;
+    border-radius:3px;
+    height: 3px;
+    width: 80px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.inf {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background-color: transparent;
+    color: #eef0eb;
+    font-size: 18px;
+    z-index: 2; /* above after */
+    padding: 6px;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.more {
+    visibility: hidden;
+    padding-top: 10px;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.name{
+    text-transform: capitalize;
+    text-align: center;
+}
+.old{
+    text-decoration: line-through;
+    color: #c3cea1;
+
+}
+.offer{
+    width: 30px;
+    height: 7px;
+    border: none;
+    border-radius: 5px;
+    background-color: #606c3897;
+    display: inline;
+    visibility: hidden;
+    padding: 4px;
+}
+
+.rate{
+    margin-top: 15px;
+}
+
+.rate i {
+    width: 20px;
+}
+
+h2{
+    margin-top: 50px;
+    color:#362a1c;
+    font-weight: 700;
+    font-size: 30px;
+    position: relative;
+    text-align: center;    
+}
+h3{
+    margin-top: 10px;
+    font-weight: 600;
+}
+p{
+    margin: 10px;
+}
+
+.item-parent{
+    width: 100%;
+    margin: auto;
+    position: relative;
+    height: 80%;
+    margin-left: 10px;
+}
+
+.item-card {
+    width: 20%;
+    height: 235px;
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; 
+    float: left;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+.item-card img {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    display: block; 
+}
+
+.item-card a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #eef0eb;
+}
+
+.item-card::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    bottom: 0;
+    left: 0;
+    background-color: #1a0e02b2;
+    transition: height 0.5s ease; 
+    border-radius: 15px; 
+    z-index: 1; /* above the img */
+}
+
+.item-card:hover::after {
+    height: 70%;
+}
+
+.item-card:hover .inf {
+    height: 70%;
+    background-color: #1a0e02ad; 
+    text-align: left;
+}
+
+.item-card:hover .more , .offer {
+    visibility: visible;
+    opacity: 1;
+}
+.cart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #eef0eb;
+    transition: top 0.7s ease, transform 0.7s ease;
+    z-index: 3; /* above the inf */
+}
+.item-card:hover .cart-icon {
+    top: auto; /* Removes the top  */
+    bottom: 10px;
+    right: 10px;
+    
+}
+/* back to org */
+.item-card:hover .cart-icon::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+    background-color: #1a0e02b2;
+    z-index: -1;
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* nav */
+.navBar{
+    position: fixed;
+    background-color:#1f170d;
+    color: #fefaea;
+    height: 50px;
+    width: 100%;
+    padding-top: 10px;
+    z-index: 50;
+}
+.navBar img {
+    float: left;
+    margin-left: 10px;
+}
+.nav-title{
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    display: inline;
+    margin-top: 10px;
+}
+.navBar ul{
+    list-style: none;
+    float: right;
+    margin-right: 50px;
+    margin-top: 6px;
+}
+.navBar ul li{
+    display: inline-block;
+    margin-right: 25px;
+}
+.navBar ul li a{
+    color: #fefaea;
+    display: inline-block;
+}
+
+.navBar ul  li:hover a {
+   /* font-size: 20px; */
+   color: #c3cea1;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Home  sec-1*/
+
+.home {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/coffee1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.home-parent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50% ,-50%);
+    text-align: center;
+    z-index: 10;
+}
+.home-parent button{
+    width: 100px;
+    height: 20px;
+    background-color: #fefaea;
+    color:#292015;
+    border: none;
+    border-radius: 10px;
+    margin-top: -100px;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Welcome */
+.welcome{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 50px;
+}
+.welcome-parent{
+    width: 100%;
+    height: 100vh;
+}
+.welcome-card {
+    width: 30%;
+    height: 350px;
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.welcome-card img {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.card-inf {
+    position: absolute;
+    color: #eef0eb;
+    font-size: 20px;
+    z-index: 2; 
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.card-inf a {
+    color: #c3cea1;
+    text-transform: capitalize;
+    line-height: 10px;
+}
+
+.welcome-card:hover .overlay::before {
+    background-color: #c3cea1ae; 
+}
+
+.welcome-card:hover .card-inf {
+    color: #292015;
+}
+
+.welcome-card:hover .card-inf a {
+    color: #eef0eb;
+}
+
+.welcome-card:hover .card-inf a:hover {
+    color: #292015;
+    font-size: larger;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* coffee */
+
+.coffee{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 50px;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.bakery{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 70px;
+}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.why{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 50px;
+}
+.why-parent{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.why-inf{
+    width: 45%;
+    height: 90%;
+    color: #292015;
+    margin-left: 30px;
+    float: left;
+}
+.why-inf p{
+    color: #646f3f;
+    margin-bottom: 20px;
+    word-spacing: 3px;
+}
+.why-inf p i {
+    margin-right: 5px;
+}
+.why-imgs{
+    width: 30%;
+    height: 400px;
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; 
+    float: right;
+    margin-left: 35px;
+    margin-top: 90px;
+}
+.why-imgs .overlay{
+    float: right;
+    position: absolute;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+.why-imgs .overlay img{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    
+}
+
+.why-parent .btns{
+    position: absolute;
+    bottom: 70px;
+    right: 115px;
+    /* background-color: #292015; */
+}
+.why-parent .btns div{
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border: none;
+    background-color:#606c38b5;
+    cursor: pointer;
+    display: inline-block;
+}
+.why-parent .btns .btn-1{
+    background-color: #606c38;
+}
+.btns div:hover{
+    background-color: #606c38;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.you{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.you-container{
+    width: 100%;
+    height: 70vh;
+    margin-top: 100px;
+    background-image: url(../img/chess1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+.content{
+    position: absolute;
+    margin-top: 200px;
+    text-align: center;
+    z-index: 10; 
+}
+.you-c{
+    float: left;
+    font-size: 26px;
+    margin-right: 10px;
+    padding-left: 270px;
+    width: 30%;
+    text-transform: capitalize;
+    color: #eef0eb;
+}
+.you-c i{
+    color:#c3cea1;
+    margin-left: 8px;
+}
+
+.you-c span{
+    margin-left: 5px;
+}
+
+.you-c:hover{
+    /* font-size: 28px; */
+    color: #646f3f;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////// */
+.chess-table{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.chess-parent{
+    width: 100%;
+    height: 100vh;
+}
+.chess-card {
+    width: 30%;
+    height: 350px;
+    border: 2px solid #606c38;
+    border-radius: 15px;
+    position: relative;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    text-align: center;
+    overflow: hidden;
+   
+}
+.chess-card::after{
+    content: "";
+    position: absolute;
+
+    background-color: #1f170d;
+    color: #fefaea;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+
+    opacity: 0;
+
+    transition: 1s;
+}
+.chess-card:hover::after{
+    height: 100%;
+    opacity: 0.5;
+    color: #fefaea;
+    transition:height 0.5s ease;
+}
+.chess-card:hover .prices{
+    border: 2px solid #c3cea1;
+    transition: border 0.5s ease;
+} 
+.chess-card:hover{
+    color: #606c38;
+    transition: color 0.5s ease;
+}
+.chess-card h3{
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.chess-card .prices{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border:2px solid #606c38;
+    border-radius: 50px;
+    padding-top: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.chess-card button{
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #606c38;
+    color:#fefaea;
+    margin-top: 20px;
+}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.review{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.review-container{
+    background-image: url(../img/Apple\ Cinnamon\ Rolls\ [150\ Minutes].jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+
+}
+
+.review-card{
+    width: 45%;
+    height: 70%;
+    float: left;
+    margin-left: 40px;
+    margin-top: 100px;
+    z-index: 11;
+    position: relative;
+    color: #c3cea1;
+    text-align: center;
+    
+}
+.review-card h3 h4{
+    display: inline;
+}
+.review-card img{
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 50px;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.ourteam{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.team-parent{
+    width: 100%;
+    height: 100vh;
+}
+
+.team-card{
+    position: relative;
+    width: 30%;
+    height: 350px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #c3cea1;
+    color: #362a1c;
+    float: left;
+    margin-left: 3%;
+}
+.team-card img{
+    width: 80%;
+    height: 60%;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10%;
+}
+.team-card h3{
+    color: #1f170d;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.team-card .icons-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1f170d8c;
+    visibility: hidden;
+    border: none;
+    border-radius: 10px;
+}
+.team-card .icons-overlay a {
+    display: block;
+    width: 15%;
+    height: 40px;
+    background-color: #292015;
+    color: #eef0eb;
+    margin-left: auto;
+    
+}
+.team-card .icons-overlay a i {
+    line-height: 45px;
+    color: #fefaea;
+}
+.team-card:hover .icons-overlay{
+    visibility: visible;
+}
+
+.team-card:after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+
+    top: 0;
+    left: 0;
+
+    background-color: #606c386e;
+    border: none;
+    border-radius: 10px;
+
+    transition: 1s;
+}
+
+.team-card:hover::after{
+    height: 100%;
+    transition: 1s;
+}
+
+.team-card:hover h3{
+    color: #fefaea;
+    font-size: 26px;
+}
+.team-card h4{
+    color: #fefaea;
+    text-transform:uppercase ;
+}
+.team-card:hover h4{
+    color: #1f170d;
+    font-weight: 500;
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+
+.news{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.news-parent{
+    width: 100%;
+    height: 100vh;
+}
+.news-cards{
+    width: 100%;
+    height: 85%;
+    position: relative;
+    margin-top: 70px;
+}
+.news-card{
+    width: 30%;
+    height: 100%;
+    position: relative;
+    float: left;
+    margin-left: 3%;
+    border: none;
+    border-radius: 10px;
+    background-color: #e8f1ca;
+    color: #362a1c;
+}
+.news-card img{
+    width: 80%;
+    height: 45%;
+    margin-left: 10%;
+    margin-top: 10%;
+    border: none;
+    border-radius: 10px;
+}
+.news-card .icons{
+    margin: 10px 0px;
+    height: fit-content;
+    width: 100%;
+}
+.icons .person , .comment , .time{
+    float: left;
+    margin-left: 4%;
+    color: #362a1c;
+}
+.article{
+    width: 100%;
+    height: 50%;
+    margin-top: 30px;
+}
+
+.article h4{
+    margin-left: 10px;
+    margin-top: 40px;
+}
+.article .line{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.article a{
+    color: #1f170d;
+    margin-left: 20px;
+}
+.news-card:after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+
+    top: 0;
+    left: 0;
+
+    background-color: #1a0e02b2;
+    border: none;
+    border-radius: 10px;
+    transition: 1s;
+    
+}
+
+.news-card:hover::after{
+    height: 100%;
+    transition: 1s;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+.footer{
+    position: relative;
+    width: 100%;
+    height: 53vh;
+    background-color: #1f170d;
+    margin-top: 100px;
+}
+.footer-parent{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.footer-parent img{
+    width: 30%;
+    height: 80%;
+    margin: 0px 33%;
+}
+.footer-parent .icons{
+    margin: -80px 0px 0px 36%;
+    font-size: 40px;
+
+}
+.footer-parent .icons a{
+    color: #c3cea1;
+    margin-left: 20px;
+}
+.footer-parent .copyRight{
+    color: #e8f1ca;
+    margin: 30px 0px 0px 33%;
+    
+}
+.copyRight span ,.copyRight p{
+    text-transform: uppercase;
+    display: inline;
+}
